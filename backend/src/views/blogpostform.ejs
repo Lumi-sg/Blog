@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			rel="stylesheet"
+			href="/styles/styles.css"
+		/>
+		<script
+			src="https://cdn.tiny.cloud/1/xciybpwdhiqp0gb1k8me6k01y50b03wv6spmdh3ltippkoky/tinymce/6/tinymce.min.js"
+			referrerpolicy="origin"
+		></script>
+		<script>
+			tinymce.init({
+				selector: "#content",
+				skin: "oxide-dark",
+				content_css: "dark",
+				content: "",
+				selector: "#content",
+			});
+		</script>
+
+		<title>Create Message</title>
+	</head>
+	<body>
+		<div class="mainContainer">
+			<h2>Signed in as <%= user.username %></h2>
+			<h3>Create A Message</h3>
+
+			<form
+				class="blogpostForm"
+				action="/blogpostform"
+				method="POST"
+			>
+				<label for="title">Title:</label>
+				<input
+					class="titleField"
+					type="text"
+					id="title"
+					name="title"
+					placeholder="Enter a post title"
+					required
+				/>
+
+				<label for="content">Content:</label>
+				<textarea
+					id="content"
+					name="content"
+				></textarea>
+
+				<% if (errors && errors.length > 0) { %>
+				<p style="color: red"><%= errors[0].msg %></p>
+				<% } %>
+				<div class="buttonContainer">
+					<button class ="submitBtn" type="submit">Submit</button>
+				</div>
+			</form>
+		</div>
+		<%- include('footer.ejs') %>
+	</body>
+</html>
