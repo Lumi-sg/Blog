@@ -7,7 +7,7 @@ const router = express.Router();
 
 //Default route
 router.get("/", (req: express.Request, res: express.Response) => {
-	res.redirect("/posts");
+	res.redirect("/login");
 });
 
 //admin login

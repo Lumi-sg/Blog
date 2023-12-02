@@ -1,0 +1,186 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #101010;
+	margin: 0;
+	padding: 0;
+
+	color: #ffffff;
+	height: 100vh;
+}
+
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 90%;
+	width: 100%;
+}
+
+form {
+	background-color: #202020;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 15%;
+}
+
+label {
+	display: block;
+	margin-bottom: 8px;
+}
+
+input {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 16px;
+	border-radius: 4px;
+	border: none;
+	box-sizing: border-box;
+}
+
+button {
+	background-color: #222f3e;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 8rem;
+	margin-top: 0.25rem;
+}
+
+button:hover {
+	background-color: #4b6c92;
+}
+.fa {
+	color: white;
+	transition: transform 0.3s ease-in-out;
+}
+.fa:hover {
+	transform: rotate(360deg) scale(1.2);
+}
+
+.footer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+}
+
+.loginButton {
+	background-color: darkslategray;
+}
+.loginButton:hover {
+	background-color: rgb(73, 122, 122);
+}
+
+.buttonContainer {
+	display: flex;
+	justify-content: space-around;
+}
+
+.blogpostForm {
+	width: 50%;
+}
+.contentField {
+	width: 50%;
+}
+
+.titleField {
+	width: 35%;
+	background-color: #222f3e;
+	color: aliceblue;
+}
+
+.hintContainer {
+	margin-top: 1rem;
+}
+
+.hintText {
+	font-size: x-small;
+}
+
+.submitBtn {
+	margin-top: 2.5rem;
+}
+
+textarea {
+	margin-bottom: 0.5rem;
+}
+/* styles/blog.css */
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.blog-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
+}
+
+.blog-card {
+	padding: 20px;
+	text-align: center;
+	background-color: #202020;
+	border: 1px solid darkslategray;
+}
+
+.blog-card a {
+	text-decoration: none;
+	color: aliceblue;
+}
+
+.postTitle {
+	text-decoration: underline;
+}
+.post-container {
+	background-color: #202020;
+	color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	margin-bottom: 20px;
+	max-width: 50%;
+	min-width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.blogpost-title {
+	color: #fff;
+}
+
+.blogpost-author {
+	color: #bbb;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.contentContainer {
+	line-height: 150%;
+	font-size: large;
+}
+
+.blogPostContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.comment {
+	border-top: 1px solid white;
+	padding: 0.5rem;
+}
+.comment-username {
+	text-decoration: underline;
+}
