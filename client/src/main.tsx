@@ -4,7 +4,9 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 import Blogpost from "./Components/Blogpost/Blogpost.tsx";
 import ErrorPage from "./Components/ErrorPage/ErrorPage.tsx";
 import Index from "./Components/Index/Index.tsx";
-import "./index.css";
+import "./main.css";
+
+const BASEURL = "http://localhost:3000";
 
 const router = createBrowserRouter([
 	{
@@ -15,6 +17,8 @@ const router = createBrowserRouter([
 	{
 		path: "/index",
 		element: <Index />,
+		loader: () => fetch(`${BASEURL}/posts`).then((response) => response.json()),
+		id: "blogpost",
 		errorElement: <ErrorPage />,
 	},
 	{

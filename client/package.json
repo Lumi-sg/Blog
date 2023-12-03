@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@types/dompurify": "^3.0.5",
+    "@types/he": "^1.2.3",
     "@types/react-router-dom": "^5.3.3",
     "dompurify": "^3.0.6",
+    "he": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1"
