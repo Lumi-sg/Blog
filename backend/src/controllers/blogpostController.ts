@@ -29,6 +29,9 @@ export const blogpost_get = asyncHandler(
 				"author"
 			);
 			if (foundBlogPost) {
+				const encodedContent = foundBlogPost.content;
+				const decodedContent = he.decode(encodedContent);
+				foundBlogPost.content = decodedContent;
 				res.json({ foundBlogPost });
 			} else {
 				res.status(404).json({ error: "Blog post not found" });
