@@ -1,5 +1,5 @@
 import he from "he";
-import { useRouteLoaderData } from "react-router-dom";
+import { Link, useRouteLoaderData } from "react-router-dom";
 import { ApiResponse } from "../../Types/APIResponse";
 import Footer from "../Footer/Footer";
 import "./index.css";
@@ -14,7 +14,12 @@ const Index = () => {
 						className="card"
 						key={blogPost.title}
 					>
-						<div className="card-title">{he.decode(blogPost.title)}</div>
+						<Link
+							to={`/post/${blogPost._id}`}
+							className="card-link"
+						>
+							<div className="card-title">{he.decode(blogPost.title)}</div>
+						</Link>
 						<div className="card-author">
 							{he.decode(blogPost.author.username)}
 						</div>

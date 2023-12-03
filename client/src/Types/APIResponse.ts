@@ -1,5 +1,5 @@
-import { BlogPost } from "./Blogpost";
+import { BlogPostType } from "./Blogpost";
 
 export type ApiResponse = {
-	blogPosts: BlogPost[];
+	blogPosts: BlogPostType[];
 };
