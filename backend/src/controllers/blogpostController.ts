@@ -11,11 +11,11 @@ import { User, UserModel } from "../models/User";
 export const blogpost_list_get = asyncHandler(
 	async (req: express.Request, res: express.Response) => {
 		try {
-			const blogposts = await BlogPostModel.find()
+			const blogPosts = await BlogPostModel.find()
 				.sort({ timePosted: -1 })
 				.populate("author");
 
-			res.json({ blogposts });
+			res.json({ blogPosts });
 		} catch (error: any) {
 			res.status(500).json({ message: error.message });
 		}
@@ -25,15 +25,14 @@ export const blogpost_list_get = asyncHandler(
 export const blogpost_get = asyncHandler(
 	async (req: express.Request, res: express.Response) => {
 		try {
-			const blogpost = await BlogPostModel.findById(req.params.id).populate(
+			const foundBlogPost = await BlogPostModel.findById(req.params.id).populate(
 				"author"
 			);
-			if (blogpost) {
-				const encodedContent = blogpost.content;
-				const decodedContent = he.decode(encodedContent);
-				blogpost.content = decodedContent;
+			if (foundBlogPost) {
+				res.json({ foundBlogPost });
+			} else {
+				res.status(404).json({ error: "Blog post not found" });
 			}
-			res.json({ blogpost });
 		} catch (error: any) {
 			res.status(500).json({ message: error.message });
 		}
