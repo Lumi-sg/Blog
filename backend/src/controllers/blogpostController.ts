@@ -16,8 +16,10 @@ export const blogpost_list_get = asyncHandler(
 				.populate("author");
 
 			res.json({ blogPosts });
+			return;
 		} catch (error: any) {
 			res.status(500).json({ message: error.message });
+			return;
 		}
 	}
 );
@@ -33,11 +35,14 @@ export const blogpost_get = asyncHandler(
 				const decodedContent = he.decode(encodedContent);
 				foundBlogPost.content = decodedContent;
 				res.json({ foundBlogPost });
+				return;
 			} else {
 				res.status(404).json({ error: "Blog post not found" });
+				return;
 			}
 		} catch (error: any) {
 			res.status(500).json({ message: error.message });
+			return;
 		}
 	}
 );
@@ -60,6 +65,7 @@ export const comment_form_post = [
 
 			if (!errors.isEmpty()) {
 				res.status(400).json({ errors: errors.array() });
+				return;
 			} else {
 				const { username, commentContent, postId } = req.body;
 
@@ -80,13 +86,16 @@ export const comment_form_post = [
 						message: "Comment created successfully",
 						comment,
 					});
+					return;
 				} else {
 					res.status(404).json({ error: "Post not found" });
+					return;
 				}
 			}
 		} catch (error: any) {
 			console.error("Error during comment form post:", error);
 			res.status(500).json({ message: error.message });
+			return;
 		}
 	}),
 ];
@@ -98,6 +107,7 @@ export const blogpost_form_get = asyncHandler(
 		const TINYMCE_API_KEY = process.env.TINYMCE_API_KEY;
 		const user = req.user as User;
 		res.render("blogpostform", { errors: [], user, TINYMCE_API_KEY });
+		return;
 	}
 );
 
@@ -139,10 +149,12 @@ export const blogpost_form_post = [
 				await blogpost.save();
 				console.log(`Successfully created message ${title} by ${user.username}.`);
 				res.redirect("/blogpostform");
+				return;
 			}
 		} catch (error) {
 			console.error("Error during blogpost form post:", error);
 			res.status(500).send("Internal Server Error");
+			return;
 		}
 	}),
 ];
