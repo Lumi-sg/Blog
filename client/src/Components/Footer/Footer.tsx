@@ -5,7 +5,7 @@ const Footer = () => {
 			<p>
 				Built by Lumi&nbsp;&nbsp;&nbsp;
 				<a
-					href="https://github.com/Lumi-sg/TierListMaker"
+					href="https://github.com/Lumi-sg/Blog"
 					style={{ textDecoration: "none" }}
 					target="_blank"
 					rel="noopener noreferrer"
