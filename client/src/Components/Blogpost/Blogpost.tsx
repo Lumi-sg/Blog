@@ -12,7 +12,7 @@ const Blogpost = () => {
 
 	useEffect(() => {
 		return () => {
-			document.title = blogPost.title.toString();
+			document.title = he.decode(blogPost.title.toString());
 		};
 	}, []);
 
