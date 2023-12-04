@@ -1,7 +1,6 @@
 import he from "he";
 import { useEffect } from "react";
 import { useNavigate, useRouteLoaderData } from "react-router-dom";
-import { blogpost_form_post } from "../../../../backend/src/controllers/blogpostController";
 import { BlogPostResponse } from "../../Types/Blogpost";
 import { BASEURL } from "../../main";
 import Footer from "../Footer/Footer";
