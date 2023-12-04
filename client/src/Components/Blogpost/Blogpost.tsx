@@ -1,11 +1,10 @@
-import React from "react";
 import { useRouteLoaderData } from "react-router-dom";
-import { BlogPostResponse, BlogPostType } from "../../Types/Blogpost";
+import { BlogPostResponse } from "../../Types/Blogpost";
 import Footer from "../Footer/Footer";
 
 const Blogpost = () => {
-	const response = useRouteLoaderData("blogpost") as BlogPostResponse;
-	console.table(response.foundBlogPost);
+	const response = useRouteLoaderData("post") as BlogPostResponse;
+	const blogPost = response.foundBlogPost;
 
 	return (
 		<div className="mainContainer">

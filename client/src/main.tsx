@@ -25,8 +25,9 @@ const router = createBrowserRouter([
 	{
 		path: "/post/:id",
 		element: <Blogpost />,
-		loader: async({ params }) =>
+		loader: async ({ params }) =>
 			fetch(`${BASEURL}/post/${params.id}`).then((response) => response.json()),
+		id: "post",
 		errorElement: <ErrorPage />,
 	},
 ]);
