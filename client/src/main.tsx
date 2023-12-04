@@ -7,7 +7,7 @@ import Index from "./Components/Index/Index.tsx";
 import Loading from "./Components/Loading/Loading.tsx";
 import "./main.css";
 
-const BASEURL = "http://localhost:3000";
+export const BASEURL = "http://localhost:3000";
 
 const router = createBrowserRouter([
 	{

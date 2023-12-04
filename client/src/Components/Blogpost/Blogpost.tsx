@@ -1,11 +1,49 @@
 import he from "he";
-import { useRouteLoaderData } from "react-router-dom";
+import { useNavigate, useRouteLoaderData } from "react-router-dom";
 import { BlogPostResponse } from "../../Types/Blogpost";
+import { BASEURL } from "../../main";
 import Footer from "../Footer/Footer";
 import "./Blogpost.css";
 const Blogpost = () => {
 	const response = useRouteLoaderData("post") as BlogPostResponse;
 	const blogPost = response.foundBlogPost;
+	const navigate = useNavigate();
+
+	const handleCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const username = (e.target as any).elements.username.value;
+		const commentContent = (e.target as any).elements.commentContent.value;
+
+		try {
+			const response = await fetch(`${BASEURL}/commentform`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					username,
+					commentContent,
+					postId: blogPost._id,
+				}),
+			});
+
+			if (response.ok) {
+				// Handle success, e.g., show a success message
+				(e.target as any).elements.username.value = "";
+				(e.target as any).elements.commentContent.value = "";
+				console.log("Comment submitted successfully");
+				navigate(`/post/${blogPost._id}`);
+			} else {
+				// Handle error, e.g., show an error message
+				console.error("Error submitting comment:", response.statusText);
+				alert("Error submitting comment");
+			}
+		} catch (error: any) {
+			console.error("Error during comment form submission:", error.message);
+			alert("Error submitting comment");
+		}
+	};
 
 	return (
 		<div className="mainContainer">
@@ -40,6 +78,7 @@ const Blogpost = () => {
 				<form
 					action="/commentform"
 					method="POST"
+					onSubmit={handleCommentSubmit}
 				>
 					<label htmlFor="username">Name:</label>
 					<input
