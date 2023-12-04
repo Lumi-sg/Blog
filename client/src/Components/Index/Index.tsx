@@ -12,7 +12,7 @@ const Index = () => {
 				{response.blogPosts.map((blogPost) => (
 					<div
 						className="card"
-						key={blogPost.title}
+						key={he.decode(blogPost.title)}
 					>
 						<Link
 							to={`/post/${blogPost._id}`}

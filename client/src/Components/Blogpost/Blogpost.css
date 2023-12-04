@@ -1,0 +1,81 @@
+.post-container {
+	margin-bottom: 20px;
+	min-width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.blogpost-title {
+	color: #fff;
+}
+
+.blogpost-author {
+	color: #bbb;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.contentContainer {
+	line-height: 150%;
+	font-size: large;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    text-align: center;
+	width: 60rem;
+}
+
+.contentContainer > p {
+	width: 100%;
+}
+
+.blogPostContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.comment {
+	border-top: 1px solid white;
+	padding: 0.5rem;
+}
+.comment-username {
+	text-decoration: underline;
+}
+form {
+	background-color: #202020;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 20rem;
+}
+
+label {
+	display: block;
+	margin-bottom: 8px;
+}
+
+input {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 16px;
+	border-radius: 4px;
+	border: none;
+	box-sizing: border-box;
+}
+
+button {
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 8rem;
+	margin-top: 0.25rem;
+}
+
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+}
