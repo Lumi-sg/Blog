@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Lumi's Blog</title>
+	</head>
+	<link
+		rel="stylesheet"
+		href="/styles/styles.css"
+	/>
+	<body>
+		<div class="mainContainer">
+			<h1>Lumi's Message Board</h1>
+			<h3>Login Form</h3>
+
+			<form
+				action="/login"
+				method="post"
+			>
+				<label for="username">Username:</label>
+				<input
+					type="text"
+					id="username"
+					name="username"
+					required
+				/>
+
+				<label for="password">Password:</label>
+				<input
+					type="password"
+					id="password"
+					name="password"
+					required
+				/>
+				<% if (errors && errors.length > 0) { %>
+				<p style="color: red"><%= errors[0].msg %></p>
+				<% } %>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+		<%- include('footer.ejs') %>
+	</body>
+</html>

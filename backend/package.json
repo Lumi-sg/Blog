@@ -1,16 +1,18 @@
 {
-	"name": "inventorymanagement",
+	"name": "lumiblog",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "nodemon dist/index.js",
+		"build": "tsc",
+		"nodemoninit": "nodemon dist/index.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@flydotio/dockerfile": "^0.4.11",
 		"@types/compression": "^1.7.4",
 		"@types/cors": "^2.8.15",
 		"@types/dotenv": "^8.2.0",
