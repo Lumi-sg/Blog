@@ -1,5 +1,4 @@
 import he from "he";
-import { useEffect } from "react";
 import { useNavigate, useRouteLoaderData } from "react-router-dom";
 import { BlogPostResponse } from "../../Types/Blogpost";
 import { BASEURL } from "../../main";
@@ -9,12 +8,6 @@ const Blogpost = () => {
 	const response = useRouteLoaderData("post") as BlogPostResponse;
 	const blogPost = response.foundBlogPost;
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		return () => {
-			document.title = he.decode(blogPost.title.toString());
-		};
-	}, []);
 
 	const handleCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
