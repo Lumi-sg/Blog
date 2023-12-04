@@ -1,5 +1,7 @@
 import he from "he";
+import { useEffect } from "react";
 import { useNavigate, useRouteLoaderData } from "react-router-dom";
+import { blogpost_form_post } from "../../../../backend/src/controllers/blogpostController";
 import { BlogPostResponse } from "../../Types/Blogpost";
 import { BASEURL } from "../../main";
 import Footer from "../Footer/Footer";
@@ -8,6 +10,12 @@ const Blogpost = () => {
 	const response = useRouteLoaderData("post") as BlogPostResponse;
 	const blogPost = response.foundBlogPost;
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		return () => {
+			document.title = blogPost.title.toString();
+		};
+	}, []);
 
 	const handleCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

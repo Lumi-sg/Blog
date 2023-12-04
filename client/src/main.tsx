@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createHashRouter } from "react-router-dom";
 import Blogpost from "./Components/Blogpost/Blogpost.tsx";
 import ErrorPage from "./Components/ErrorPage/ErrorPage.tsx";
 import Index from "./Components/Index/Index.tsx";
@@ -9,7 +9,7 @@ import "./main.css";
 
 export const BASEURL = "https://lumiblog.fly.dev";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: "/",
 		element: <Navigate to="/index" />,
